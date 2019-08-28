@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 27 août 2019 à 12:42
+-- Généré le :  mer. 28 août 2019 à 19:54
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.8
 
@@ -54,6 +54,38 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (14, 'Science & Technology'),
 (15, 'Nonprofits & Activism');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `thumbnails`
+--
+
+CREATE TABLE `thumbnails` (
+  `id` int(11) NOT NULL,
+  `videoid` int(11) NOT NULL,
+  `filePath` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `selected` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `videos`
+--
+
+CREATE TABLE `videos` (
+  `id` int(11) NOT NULL,
+  `uploadedBy` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `privacy` int(11) NOT NULL,
+  `filePath` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category` int(11) NOT NULL,
+  `uploadDate` datetime NOT NULL DEFAULT current_timestamp(),
+  `views` int(11) NOT NULL,
+  `duration` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Index pour les tables déchargées
 --
@@ -65,6 +97,18 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `thumbnails`
+--
+ALTER TABLE `thumbnails`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `videos`
+--
+ALTER TABLE `videos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -73,6 +117,18 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `thumbnails`
+--
+ALTER TABLE `thumbnails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
