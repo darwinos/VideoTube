@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 28 août 2019 à 19:54
+-- Généré le :  jeu. 29 août 2019 à 04:02
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.8
 
@@ -70,6 +70,23 @@ CREATE TABLE `thumbnails` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastName` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `signUpDate` datetime NOT NULL DEFAULT current_timestamp(),
+  `profilePic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `videos`
 --
 
@@ -103,6 +120,12 @@ ALTER TABLE `thumbnails`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `videos`
 --
 ALTER TABLE `videos`
@@ -123,6 +146,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `thumbnails`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `videos`
