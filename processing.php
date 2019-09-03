@@ -14,7 +14,7 @@
         $_POST["descriptionInput"], 
         $_POST["privacyInput"], 
         $_POST["categoriesInput"], 
-        "REPLACETHIS"
+        $userLoggedInObj->getUsername()
     );
 
     $videoProcessor = new VideoProcessor($con);
